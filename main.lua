@@ -40,11 +40,8 @@ reachTab.newToggle("Enable Reach", "", reachEnabled, function(state)
 	reachEnabled = state
 end)
 
-reachTab.newInput("Reach Distance (1–100000)", "", tostring(reachDistance), function(input)
-	local num = tonumber(input)
-	if num and num >= 1 and num <= maxReach then
-		reachDistance = math.floor(num)
-	end
+reachTab.newSlider("Reach Distance", "", maxReach, false, function(distance)
+	reachDistance = math.floor(distance)
 end)
 
 reachTab.newKeybind("Toggle UI", "", Enum.KeyCode.RightControl, function()
